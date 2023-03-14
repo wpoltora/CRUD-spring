@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=false;">
+    <title>Car Dealership</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+</head>
+
+<body>
+<div th:replace="fragments.html :: menu"></div>
+<div class="container bg-light py-5">
+    <h1 class="mb-4">Cars: </h1>
+    <a class="btn btn-dark mb-4 ml-4" th:if="${role == 'ADMIN'}" href="/new">Add new car</a>
+
+    <th:block th:each="car : ${cars}">
+        <div class="car-list mb-4 p-3 mx-4">
+            <div th:text="${car.name}" class="car-name font-weight-bold"></div>
+            <div class="car-info m-2">
+                <div th:text="'Brand: ' + ${car.brand}"></div>
+                <div th:text="'Name: ' + ${car.name}"></div>
+                <div th:text="'Color: ' + ${car.color}"></div>
+                <div th:text="'Age: ' + ${car.age}"></div>
+                <div th:text="'TopSpeed: ' + ${car.topSpeed}"></div>
+                <a class="btn btn-primary" th:if="${role == 'ADMIN'}" th:href="@{/edit/{id}(id=${car.id})}">Edit</a>
+            </div>
+        </div>
+    </th:block>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

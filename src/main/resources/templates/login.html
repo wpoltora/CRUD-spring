@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=false;">
+    <title>Login - Car dealership</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+<div th:replace="fragments.html :: menu"></div>
+<div class="container bg-light text-center">
+    <span>*Admin login: username = admin password = admin"</span>
+    <form id="login" method="post" class="py-5">
+        <div class="form-group">
+            <input type="text" placeholder="Login" th:field="*{userModel.login}" class="form-control text-center  mx-auto">
+        </div>
+        <div class="form-group">
+            <input type="password" placeholder="Password" th:field="*{userModel.pass}" class="form-control text-center mx-auto">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Log-in" class="btn btn-primary">
+        </div>
+        <a href="/register" class="btn btn-dark">Register</a>
+    </form>
+</div>
+</body>
+</html>

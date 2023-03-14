@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=false;">
+    <title>Car dealership</title>
+    <link rel="stylesheet" href="new.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="validate.js"></script>
+</head>
+<body>
+<div th:replace="fragments.html :: menu"></div>
+<div class="container text-center bg-light py-5">
+    <div class="row">
+        <div class="col-3">
+            <a href="/main" class="btn btn-dark">Return</a>
+        </div>
+        <div class="col">
+            <form method="post">
+                <div class="form-group text-left">
+                    <label for="inp-name">Name:</label>
+                    <input id="inp-name" type="text" th:field="*{car.name}" class="form-control">
+                </div>
+                <div class="form-group text-left">
+                    <label for="inp-brand">Brand:</label>
+                    <input id="inp-brand" type="text" th:field="*{car.brand}"  class="form-control">
+                </div>
+                <div class="form-group text-left">
+                    <label for="inp-color">Color:</label>
+                    <input id="inp-color" type="text" th:field="*{car.color}"  class="form-control">
+                </div>
+                <div class="form-group text-left">
+                    <label for="inp-age">Age:</label>
+                    <input id="inp-age" type="text" th:field="*{car.age}"  class="form-control">
+                </div>
+                <div class="form-group text-left">
+                    <label for="inp-topSpeed">Top Speed:</label>
+                    <input id="inp-topSpeed" type="text" th:field="*{car.topSpeed}"  class="form-control">
+                </div>
+                <input class="btn btn-dark" type="submit" value="Create">
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+
+</body>
+</html>
